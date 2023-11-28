@@ -30,7 +30,7 @@ sio = socketio.AsyncClient()
 @sio.event
 async def connect():
     print('Conexão feita com sucesso ao servidor!')
-    await set_id("TEST-123")
+    await set_id("TEST-1234")
 
 def msg(e): {
     print(e)
@@ -63,6 +63,7 @@ async def makeAPrint(data):
         name = _Conver.save__ZPL(data["ro"])
         name = f'{name}.{type}'
         if platform.system() == "Windows":
+            _Conver.print__zpl(name)
             from system.windows import printer
             printer(name)
         elif platform.system() == "Linux":
@@ -74,8 +75,9 @@ async def makeAPrint(data):
     name = f'{name}.{type}'
     if platform.system() == "Windows":
         print("teste")
-        from system.windows import printer
-        printer(name)
+
+        # from system.windows import printer
+        # printer(name)
     elif platform.system() == "Linux":
         from system.linux import printer
         printer(name, configuracao["LINUX_PRINT_NAME"])

@@ -4,7 +4,7 @@ import win32api
 
 
 def printer(name: str):
-    sep_tup = os.path.splitext(file)
+    sep_tup = os.path.splitext(name)
     ext = sep_tup[1]
     file = sep_tup[0]
     default_printer_name = win32print.GetDefaultPrinter()
